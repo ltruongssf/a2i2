@@ -9,7 +9,8 @@
 <ion-content>
    
   
-      <form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
+      <!--<form #registerForm="ngForm" (ngSubmit)="register()" novalidate>-->
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" novalidate>
   <ion-list>
 
   <ion-item>

@@ -20,7 +20,7 @@ export class RegisterPage {
   user = {};
   
    register(form) {
-    if( !form || form.invalid) 
+    if(form.invalid) 
          return alert("Please fill in all of the required fields.");
        else if (form.valid) { 
             this.navCtrl.push(LobbyPage);
