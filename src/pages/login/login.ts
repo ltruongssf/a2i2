@@ -2,17 +2,12 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LobbyPage } from '../lobby/lobby';
 
-/*
-  Generated class for the Login page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-export class LoginPage {
+export class LoginPage{
 
   constructor(public navCtrl: NavController) {
     this.navCtrl = navCtrl; 
@@ -20,10 +15,14 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('Hello LoginPage Page');
+    console.log('Hello Login Page');
   }
-   loginEmail(){
-        this.navCtrl.push(LobbyPage);
-    }
-
+  user = {};
+  signinForm(form) {
+    if(form.invalid) 
+         return alert("Please fill in all of the required fields.");
+       else if (form.valid) { 
+            this.navCtrl.push(LobbyPage);
+     }
+} 
 }

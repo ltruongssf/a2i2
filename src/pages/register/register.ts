@@ -2,12 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LobbyPage } from '../lobby/lobby';
 
-/*
-  Generated class for the Register page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html'
@@ -22,7 +17,14 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('Hello RegisterPage Page');
   }
-    registerEmail(){
-        this.navCtrl.push(LobbyPage);
-    }
+  user = {};
+  
+   register(form) {
+    if( !form || form.invalid) 
+         return alert("Please fill in all of the required fields.");
+       else if (form.valid) { 
+            this.navCtrl.push(LobbyPage);
+     }
+} 
+  
 }

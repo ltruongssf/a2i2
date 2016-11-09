@@ -1,27 +1,28 @@
 <ion-header>
-<ion-navbar>
-    <ion-title>
-        Login
-    </ion-title>
-</ion-navbar>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
 </ion-header>
+
+
+<ion-content padding>
  
-<ion-content>
- 
-<ion-list>
-
-  <ion-item>
-    <ion-label fixed>Username</ion-label>
-    <ion-input type="text" value=""></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label fixed>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-
-</ion-list>
-     <button ion-button block (click)="loginEmail()" >Login</button> 
+  <form #loginForm="ngForm" (ngSubmit)="signinForm(loginForm)" novalidate>
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <!--[(ngModel)]="user.email" sameAs ng-model="user.email"-->
+      <ion-input name="email" type="email" [(ngModel)]="user.email" required></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input name="password" type="password" [(ngModel)]="user.password" required></ion-input>
+    </ion-item>
   
- 
+  <button ion-button type="submit" class="button-block">
+      Log In
+    </button>
+  </form>
 </ion-content>

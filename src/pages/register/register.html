@@ -7,31 +7,30 @@
 </ion-header>
  
 <ion-content>
- 
-   <ion-list>
+   
+  
+      <form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
+  <ion-list>
 
   <ion-item>
-    <ion-input type="text" placeholder="First Name"></ion-input>
+    <ion-input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName"></ion-input>
   </ion-item>
   
   <ion-item>
-    <ion-input type="text" placeholder="Last Name"></ion-input>
+    <ion-input type="text" placeholder="Last Name" [(ngModel)]="user.lastName" name="lastName"required></ion-input>
   </ion-item>
    
    <ion-item>
-    <ion-input type="email" placeholder="Email"></ion-input>
+    <ion-input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required></ion-input>
   </ion-item>
     
     <ion-item>
-  <ion-input type="password" placeholder="Password"></ion-input>
+  <ion-input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required></ion-input>
   </ion-item>
 
  <ion-item>
-    <ion-input type="text" placeholder="Organization"></ion-input>
+    <ion-input type="text" placeholder="Organization" [(ngModel)]="user.organization" name="organization"></ion-input>
   </ion-item> 
   
-</ion-list>
- 
-    <button ion-button block (click)="registerEmail()">Register</button> 
- 
-</ion-content>
+  
+<button ion-button type="submit" value="Submit">Register</button>
