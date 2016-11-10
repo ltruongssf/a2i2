@@ -1,22 +1,38 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, Injectable } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Test page.
+// @Injectable()
+// export class Params {
+//   public params;
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+//   constructor () {
+//     this.params = {};
+//   }
+// }
+
 @Component({
   selector: 'page-test',
   templateUrl: 'test.html'
 })
 export class TestPage {
 
-  constructor(public navCtrl: NavController) {}
-
-  ionViewDidLoad() {
-    console.log('Hello TestPage Page');
+  constructor(public navCtrl: NavController) {
+    this.navCtrl = navCtrl; 
   }
+  
+  
+} 
 
+export class NextPage {
+  constructor(public navCtrl: NavController, questionID) { 
+    this.navCtrl.push(NextPage, {status: true})
+
+  }
 }
+
+
+
+
+  
+  // constructor(public navCtrl: NavController, public navParams: NavParams) { 

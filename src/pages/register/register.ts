@@ -13,10 +13,7 @@ export class RegisterPage {
     this.navCtrl = navCtrl; 
     
   }
-
-  ionViewDidLoad() {
-    console.log('Hello RegisterPage Page');
-  }
+  
   user = {};
   
    register(form) {
@@ -25,6 +22,5 @@ export class RegisterPage {
        else if (form.valid) { 
             this.navCtrl.push(LobbyPage);
      }
-} 
-  
-}
+    } 
+ }

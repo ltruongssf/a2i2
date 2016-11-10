@@ -1,6 +1,8 @@
 .toolbar-background {
-  background-color: #FFD700;
+  background-color: white;
   text-align: center;
+  outline-color: #FFD700;
+  font-style: "Lucida Console", Monaco, monospace;
 }
 
 .navBar { 
@@ -11,6 +13,8 @@
     background-color: #FFD700; 
     color: black;
     outline-color: gray;
+
+  
 }
 
 .button:hover {
@@ -18,16 +22,3 @@
     background-color: white;
 }
 
-// .item.item-divider:hover {
-
-//     background-color: slategray !important;
-//     border-color: slategray !important;
-// }
-// .item.item-text-wrap {
-//     font-family: "Courier New";
-//     font-weight: bold;
-// }
-
-// .has-errors {
-//  border: 1px solid red;
-// }
