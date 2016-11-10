@@ -14,24 +14,20 @@ export class SSFUsersRest {
   constructor(public http: Http) {}
   
   login(credentials) {
-    this.http.post('https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/login', credentials)
-      .map(res => res.json())
-      .subscribe(
-        // We're assuming the response will be an object
-        // with the JWT on an id_token key
-        data => localStorage.setItem('id_token', data.id_token),
-        error => console.log(error)
-      );
+    return this.http.post('https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/login', credentials)
+      
   }
+
+  
   logout(credentials) {
     this.http.post('https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/logout', credentials)
-      .map(res => res.json())
-      .subscribe(
-        // We're assuming the response will be an object
-        // with the JWT on an id_token key
-        data => localStorage.setItem('id_token', data.id_token),
-        error => console.log(error)
-      );
+      // .map(res => res.json())
+      // .subscribe(
+      //   // We're assuming the response will be an object
+      //   // with the JWT on an id_token key
+      //   data => localStorage.setItem('id_token', data.id_token),
+      //   error => console.log(error)
+     // );
   }
 
 }

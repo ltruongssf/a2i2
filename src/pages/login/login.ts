@@ -13,34 +13,26 @@ import { SSFUsersRest } from '../providers/ssf-users-rest';
 
 export class LoginPage{
 
-  constructor(public navCtrl: NavController, public userRest: SSFUser) {
+  constructor(public navCtrl: NavController, public userRest: SSFUsersRest) {
     this.navCtrl = navCtrl; 
     
   }
-
-  ionViewDidLoad() {
-    console.log('Hello Login Page');
-  }
-  user = {};
   
-//   export class LoginComponent {
+  user = {};
 
-//   credentials: Credentials;
-
-//   constructor(private auth: AuthService) {}
-
-//   onLogin(credentials) {
-//     this.auth.login(credentials);
-//   }
-// }
 
   signinForm(form) {
-    this.userRest.login();
-    if(form.invalid) 
+     if(form.invalid) 
          return alert("Please fill in all of the required fields.");
        else if (form.valid) { 
             this.navCtrl.push(LobbyPage);
-     }
-} 
+       }
+    this.userRest.login()
+    .map(res => res.json())
+      .subscribe(
+        data => localStorage.setItem('id_token', data.id_token),
+        error => console.log(error)
+      );
+    } 
 }
 

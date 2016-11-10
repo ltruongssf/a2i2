@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 export class TestResultsRest {
 
   constructor(public http: Http) {}
-  TestResultsRest = this;
+  
 
-  TestResultsRest.getAll(credentials) 
-    TestResultsRest.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
+  this..getAll(credentials) 
+    return this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
       .map(res => res.json())
       .subscribe(
         data => localStorage.setItem('id_token', data.id_token),
@@ -17,9 +17,10 @@ export class TestResultsRest {
       );
       
       
+
   
-  TestResultsRest.save(credentials) 
-    TestResultsRest.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
+  this.save(credentials) 
+     return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
       .map(res => res.json())
       .subscribe(
         // We're assuming the response will be an object
@@ -28,8 +29,8 @@ export class TestResultsRest {
         error => console.log(error)
       );
   
-  TestResultsRest.get(credentials) 
-    TestResultsRest.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
+  this.get(credentials) 
+     return this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
       .map(res => res.json())
       .subscribe(
         // We're assuming the response will be an object

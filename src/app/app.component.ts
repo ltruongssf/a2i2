@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
-//import { HomePage } from '../pages/home/home';
 import { LandingPage } from '../pages/landing/landing';
+import { LobbyPage } from '../pages/landing/landing';
 
 
 
@@ -11,7 +10,14 @@ import { LandingPage } from '../pages/landing/landing';
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage = LandingPage;
+  rootPage = (function() {
+    if(window.localStorage.getItem("token"))
+      return lobby;
+    return LandingPage;
+  })();
+  
+  
+}
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
