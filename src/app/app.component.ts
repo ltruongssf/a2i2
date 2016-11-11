@@ -2,21 +2,16 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { LandingPage } from '../pages/landing/landing';
-import { LobbyPage } from '../pages/landing/landing';
+import { LobbyPage } from '../pages/lobby/lobby';
 
 
 
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
+
 export class MyApp {
-  rootPage = (function() {
-    if(window.localStorage.getItem("token"))
-      return lobby;
-    return LandingPage;
-  })();
-  
-  
+  rootPage = window.localStorage.getItem("token") ? LobbyPage : LandingPage;
 }
 
   constructor(platform: Platform) {
