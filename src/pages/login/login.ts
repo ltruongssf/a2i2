@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LobbyPage } from '../lobby/lobby';
-import { SSFUsersRest } from '../providers/ssf-users-rest';
-
+import { SSFUsersRest } from '../../providers/ssf-users-rest';
+import { Observable } from 'rxjs/Rx';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { SSFUsersRest } from '../providers/ssf-users-rest';
 
 export class LoginPage{
 
-  constructor(public navCtrl: NavController, public userRest: SSFUsersRest) {
+  constructor(public navCtrl: NavController, public usersRest: SSFUsersRest) {
     this.navCtrl = navCtrl; 
     
   }
@@ -27,7 +27,7 @@ export class LoginPage{
        else if (form.valid) { 
             this.navCtrl.push(LobbyPage);
        }
-    this.userRest.login()
+    this.usersRest.login()
     .map(res => res.json())
       .subscribe(
         data => localStorage.setItem('id_token', data.id_token),

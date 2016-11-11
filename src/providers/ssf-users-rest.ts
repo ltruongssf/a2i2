@@ -2,25 +2,26 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the SSFUsersRest provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class SSFUsersRest {
 
   constructor(public http: Http) {}
   
+  register(credentials) {
+    return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/", credentials)
+    // return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/"+"?access_token="+token, credentials)
+      
+  }
+  
   login(credentials) {
-    return this.http.post('https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/login', credentials)
+      return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/login", credentials)
       
   }
 
   
   logout(credentials) {
-    this.http.post('https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/logout', credentials)
+      return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/logout", credentials)
       // .map(res => res.json())
       // .subscribe(
       //   // We're assuming the response will be an object

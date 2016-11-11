@@ -10,16 +10,15 @@ import { LobbyPage } from '../pages/lobby/lobby';
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
 
-export class MyApp {
-  rootPage = window.localStorage.getItem("token") ? LobbyPage : LandingPage;
+  // constructor(platform: Platform) {
+  //   platform.ready().then(() => {
+  //     // Okay, so the platform is ready and our plugins are available.
+  //     // Here you can do any higher level native things you might need.
+  //     StatusBar.styleDefault();
+  //     Splashscreen.hide();
+  //   });
+  // }
+  export class MyApp {
+    rootPage = window.localStorage.getItem("token") ? LobbyPage : LandingPage;
 }
 
-  constructor(platform: Platform) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-    });
-  }
-}

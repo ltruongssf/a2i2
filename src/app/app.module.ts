@@ -10,13 +10,15 @@ import { ResultsPage } from '../pages/results/results';
 import { QuestionsRest } from '../providers/questions-rest';
 import { SSFUsersRest } from '../providers/ssf-users-rest';
 import { TestResultsRest } from '../providers/test-results-rest';
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 
 const injections = [MyApp, LandingPage, LoginPage, RegisterPage, LobbyPage, TestPage, ResultsPage];
 @NgModule({
   declarations: injections,
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp), HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,

@@ -16,5 +16,5 @@ export class QuestionsRest {
         data => localStorage.setItem('id_token', data.id_token),
         error => console.log(error)
       );
-
+  }
 }
