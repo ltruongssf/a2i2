@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LobbyPage } from '../lobby/lobby';
 import { SSFUsersRest } from '../../providers/ssf-users-rest';
-import { Http } from '@angular/http';
-
 
 
 @Component({
@@ -12,7 +10,9 @@ import { Http } from '@angular/http';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public usersRest: SSFUsersRest, public http:Http) {
+  constructor(public navCtrl: NavController, 
+              public usersRest: SSFUsersRest
+             ) {
     this.navCtrl = navCtrl; 
     
   }
@@ -25,21 +25,15 @@ export class RegisterPage {
        else if (form.valid) { 
             this.navCtrl.push(LobbyPage);
        }
-    this.usersRest.register()
+    this.usersRest.register(this.user)
     .map(res => res.json())
-      .subscribe(
-        data => localStorage.setItem('id_token', data.id_token),
-        error => console.log(error)
-      );
-    } 
-  
- }
+      .subscribe(res => {
+      window.localStorage.setItem('token', res.token);
+      window.localStorage.setItem('userId', res.id);
+      this.navCtrl.setRoot(LobbyPage);
+    }, err => {
+      alert("Error!");
+    });
+  }
 
-
-//  register(form) {
-//     if(form.invalid) 
-//          return alert("Please fill in all of the required fields.");
-//       else if (form.valid) { 
-//             this.navCtrl.push(LobbyPage);
-//      }
-//     } 
+}

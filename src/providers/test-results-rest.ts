@@ -8,37 +8,25 @@ export class TestResultsRest {
   constructor(public http: Http) {}
   
 
-  getAllTestResults(credentials) {
-    return this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
-      // .map(res => res.json())
-      // .subscribe(
-      //   data => localStorage.setItem('id_token', data.id_token),
-      //   error => console.log(error)
-      // );
+  getAll(token, userId) {
+    return this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults"+"?filter[where][userID]=" + userId +
+        "&access_token=" + token
+    );
   }
-      
+
+
 
   
-  saveTestResults(credentials) {
-     return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
-      // .map(res => res.json())
-      // .subscribe(
-      //   // We're assuming the response will be an object
-      //   // with the JWT on an id_token key
-      //   data => localStorage.setItem('id_token', data.id_token),
-      //   error => console.log(error)
-      // );
+  save(test,token) {
+     return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults"+'?access_token=' + token,
+      test
+    );
   }
  
   
-  getTestResults(credentials) {
-     return this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults", credentials)
-      .map(res => res.json())
-      // .subscribe(
-      //   // We're assuming the response will be an object
-      //   // with the JWT on an id_token key
-      //   data => localStorage.setItem('id_token', data.id_token),
-      //   error => console.log(error)
-      // );
+  getTestResults(test,token) {
+     return this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/TestResults"+'?access_token=' + token,
+      test
+    );
   }
 }

@@ -10,8 +10,7 @@ export class SSFUsersRest {
   
   register(credentials) {
     return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/", credentials)
-    // return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/"+"?access_token="+token, credentials)
-      
+    
   }
   
   login(credentials) {
@@ -20,15 +19,11 @@ export class SSFUsersRest {
   }
 
   
-  logout(credentials) {
-      return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/logout", credentials)
-      // .map(res => res.json())
-      // .subscribe(
-      //   // We're assuming the response will be an object
-      //   // with the JWT on an id_token key
-      //   data => localStorage.setItem('id_token', data.id_token),
-      //   error => console.log(error)
-     // );
-  }
-
+ logout(token) {
+    return this.http.post(
+      'https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/logout'+
+        '?access_token=' + token, {} 
+        );
+  }  
 }
+

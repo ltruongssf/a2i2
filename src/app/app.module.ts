@@ -5,16 +5,18 @@ import { LandingPage } from '../pages/landing/landing';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { LobbyPage } from '../pages/lobby/lobby';
-import { TestPage } from '../pages/test/test';
 import { ResultsPage } from '../pages/results/results'; 
-import { QuestionsRest } from '../providers/questions-rest';
+import { RestQuestions } from '../providers/questions-rest';
 import { SSFUsersRest } from '../providers/ssf-users-rest';
 import { TestResultsRest } from '../providers/test-results-rest';
 import { HttpModule } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { TKTestAnswers } from '../providers/tk-test-answers';
+import { TKTestQuestions } from '../providers/tk-test-questions';
+import { QuestionPage } from '../pages/question/question';
 
 
-const injections = [MyApp, LandingPage, LoginPage, RegisterPage, LobbyPage, TestPage, ResultsPage];
+const injections = [MyApp, LandingPage, LoginPage, RegisterPage, LobbyPage, QuestionPage, ResultsPage];
 @NgModule({
   declarations: injections,
   imports: [
@@ -22,6 +24,6 @@ const injections = [MyApp, LandingPage, LoginPage, RegisterPage, LobbyPage, Test
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,
-  providers: [QuestionsRest, SSFUsersRest, TestResultsRest]
+  providers: [RestQuestions, SSFUsersRest, TestResultsRest, TKTestAnswers,TKTestQuestions]
 })
 export class AppModule {}

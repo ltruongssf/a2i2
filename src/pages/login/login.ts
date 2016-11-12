@@ -18,21 +18,26 @@ export class LoginPage{
     
   }
   
-  user = {};
+  user = {
+    email: "aaa@aaa.com",
+    password: "aaa"
+};
 
 
   signinForm(form) {
      if(form.invalid) 
          return alert("Please fill in all of the required fields.");
-       else if (form.valid) { 
-            this.navCtrl.push(LobbyPage);
-       }
-    this.usersRest.login()
+       
+    this.usersRest.login(this.user)
     .map(res => res.json())
       .subscribe(
-        data => localStorage.setItem('id_token', data.id_token),
-        error => console.log(error)
-      );
-    } 
+        res => {
+          window.localStorage.setItem('token', res.id);
+          window.localStorage.setItem('userId', res.userId);
+          this.navCtrl.setRoot(LobbyPage);
+        },
+        err => {
+      alert("Error!");
+    });
+  }
 }
-

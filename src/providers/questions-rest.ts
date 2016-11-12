@@ -2,19 +2,24 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+/*
+  Generated class for the RestQuestions provider.
 
+  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+  for more info on providers and Angular 2 DI.
+*/
 @Injectable()
+export class RestQuestions {
 
-export class QuestionsRest {
-
-  constructor(public http: Http) {}
+  constructor(public http: Http) {
+    console.log('Hello RestQuestions Provider');
+  }
   
-  login(credentials) {
-    this.http.get("https://strongloop-backend-ohheyitslisa.c9users.io/api/Questions/", credentials)
-      .map(res => res.json())
-      .subscribe(
-        data => localStorage.setItem('id_token', data.id_token),
-        error => console.log(error)
-      );
+  
+  get(token) {
+    return this.http.get(
+      "https://strongloop-backend-ohheyitslisa.c9users.io/api/Questions" + 
+        '?access_token=' + token 
+    );
   }
 }
