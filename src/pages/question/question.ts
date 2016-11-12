@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { Result } from '../result/result';
+import { ResultsPage } from '../results/results';
 
 import { TKTestQuestions } from '../../providers/tk-test-questions';
 import { TKResultsButton } from '../../providers/tk-results-button';
@@ -65,7 +65,7 @@ export class QuestionPage {
     answersDict["userID"] = window.localStorage.getItem('userId');
     this.TKTestAnswersServ.saveTest(answersDict, window.localStorage.getItem('token'));
     //this.TKResultsButtonServ.setShouldShowMenuButton(true);
-    this.navCtrl.setRoot(Result);
+    this.navCtrl.setRoot(ResultsPage);
   }
 }
 

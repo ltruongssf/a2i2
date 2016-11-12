@@ -8,13 +8,13 @@ export class SSFUsersRest {
 
   constructor(public http: Http) {}
   
-  register(credentials) {
-    return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/", credentials)
+  register(newUserData) {
+    return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/", newUserData);
     
   }
   
   login(credentials) {
-      return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/login", credentials)
+      return this.http.post("https://strongloop-backend-ohheyitslisa.c9users.io/api/SSFUsers/login", credentials);
       
   }
 

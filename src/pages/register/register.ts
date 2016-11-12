@@ -14,26 +14,22 @@ export class RegisterPage {
               public usersRest: SSFUsersRest
              ) {
     this.navCtrl = navCtrl; 
-    
-  }
+}
   
   user = {};
    
     register(form) {
      if(form.invalid) 
          return alert("Please fill in all of the required fields.");
-       else if (form.valid) { 
-            this.navCtrl.push(LobbyPage);
-       }
+   
     this.usersRest.register(this.user)
     .map(res => res.json())
-      .subscribe(res => {
+    .subscribe(res => {
       window.localStorage.setItem('token', res.token);
       window.localStorage.setItem('userId', res.id);
       this.navCtrl.setRoot(LobbyPage);
     }, err => {
-      alert("Error!");
+      console.log("Warning Will Robinson!");
     });
-  }
-
+}
 }

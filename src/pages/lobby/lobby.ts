@@ -47,7 +47,7 @@ export class LobbyPage {
       window.localStorage.clear();
       this.navCtrl.setRoot(LandingPage);
     }, err => {
-      alert("Something went wrong!");
+      console.log("Something went wrong!");
       window.localStorage.clear();
       this.navCtrl.setRoot(LandingPage);
     });

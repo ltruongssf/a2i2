@@ -19,8 +19,8 @@ export class LoginPage{
   }
   
   user = {
-    email: "aaa@aaa.com",
-    password: "aaa"
+    email: "",
+    password: ""
 };
 
 
@@ -37,7 +37,7 @@ export class LoginPage{
           this.navCtrl.setRoot(LobbyPage);
         },
         err => {
-      alert("Error!");
+      console.log("Error!");
     });
   }
 }
